@@ -1,0 +1,1 @@
+java -cp "src/lib/*" cucumber.api.cli.Main -p pretty .
