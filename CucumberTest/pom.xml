@@ -13,7 +13,7 @@
 		<spring.version>2.5.6</spring.version>
 		<jstl.version>1.2</jstl.version>
 		<servletapi.version>2.5</servletapi.version>
-		<cucumber.version>1.2.0</cucumber.version>
+		<cucumber.version>1.2.2</cucumber.version>
 
 	</properties>
 
@@ -64,7 +64,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>com.test</finalName>
+		<finalName>cucumberSample</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -101,51 +101,6 @@
 					<wtpContextName>spring2</wtpContextName>
 				</configuration>
 			</plugin>
-
-			<!-- cucumber unit test -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-failsafe-plugin</artifactId>
-				<version>2.12</version>
-				<executions>
-					<execution>
-						<id>test</id>
-						<goals>
-							<goal>integration-test</goal>
-							<goal>verify</goal>
-						</goals>
-					</execution>
-
-				</executions>
-				<configuration>
-					<executableDependency>
-						<groupId>info.cukes</groupId>
-						<artifactId>cucumber-core</artifactId>
-					</executableDependency>
-					<mainClass>cucumber.api.cli.Main</mainClass>
-					<arguments>
-						<argument>--format</argument>
-						<argument>junit:target/cucumber-junit-report/allcukes.xml</argument>
-						<argument>--format</argument>
-						<argument>pretty</argument>
-						<argument>--format</argument>
-						<argument>html:target/cucumber-html-report</argument>
-						<argument>--tags</argument>
-						<argument>@login</argument>
-						<argument>--glue</argument>
-						<argument>com/</argument>
-						<argument>src/</argument>
-					</arguments>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>info.cukes</groupId>
-						<artifactId>cucumber-core</artifactId>
-						<version>1.1.5</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-
 		</plugins>
 	</build>
 </project>
