@@ -3,16 +3,26 @@ package steps;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Hashtable;
+import java.util.Map;
 
+import com.test.view.Checkout;
+
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import view.Checkout;
 
 public class CheckOutSteps {
 
-	Hashtable itemsPrice = new Hashtable();
-	Checkout checkout = new Checkout();
+	Map<String, Integer> itemsPrice;
+	Checkout checkout;
+	
+	@Before
+	public void init()
+	{
+		itemsPrice = new Hashtable<>();
+		checkout = new Checkout();
+	}
 	
 	@Given("^The price of a \"(.*?)\" is (\\d+)c$")
 	public void thePriceOfAIsC(String name, int price) throws Throwable {

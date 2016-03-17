@@ -1,4 +1,4 @@
-package view;
+package com.test.view;
 
 public class Checkout {
 
